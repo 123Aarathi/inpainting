@@ -20,7 +20,7 @@ parser.add_argument('--checkpoint_dir', default='', type=str,
 
 
 if __name__ == "__main__":
-    FLAGS = ng.Config('inpaint.yml')
+    FLAGS = ng.Config('/content/inpainting/inpaint.yml')
     # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
 
