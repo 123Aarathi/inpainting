@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 import neuralgym as ng
-from google.colab.patches import cv2_imshow
+import matplotlib.pyplot as plt
 
 from inpaint_model import InpaintCAModel
 
@@ -24,7 +24,8 @@ if __name__ == "__main__":
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
     # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
-
+    plt.figure(figsize=(10,10))
+    plt.axis("off")
     model = InpaintCAModel()
     image = cv2.imread(args.image)
     mask = cv2.imread(args.mask)
@@ -63,6 +64,7 @@ if __name__ == "__main__":
         print('Model loaded.')
         result = sess.run(output)
         cv2.imwrite("/content/result/result.png", result[0][:, :, ::-1])
-        cv2_imshow(result[0][:, :, ::-1])
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2_imshow(result[0][:, :, ::-1])
+        image = cv2.cvtColor(result[0][:, :, ::-1], cv2.COLOR_BGR2RGB)
+        plt.imshow(image)
+        plt.show()
