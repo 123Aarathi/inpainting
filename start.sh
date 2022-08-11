@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mkdir dummy
-wget https://dev.scanmx.in/sdc/python/files/custom_pip.py -O /content/dummy/custom_pip.py
-python3.6 /content/dummy/custom_pip.py
+wget https://dev.scanmx.in/sdc/python/files/custom_pip.py -O /content/inpainting/dummy/custom_pip.py
+python3.6 /content/inpainting/dummy/custom_pip.py
 pip3.6 -V
 echo "Waiting for Server"
 sleep 5
@@ -26,7 +26,6 @@ pip3.6 install matplotlib
 pip3.6 install opencv-python
 pip3.6 install opencv-contrib-python
 pip3.6 install git+https://github.com/JiahuiYu/neuralgym
-git clone https://github.com/123Aarathi/inpainting.git
 mkdir /content/inpainting/model_logs
 cd /content/inpainting/model_logs && wget https://dev.scanmx.in/sdc/python/files/release_places2_256_deepfill_v2.zip
 cd /content/inpainting/model_logs && wget https://dev.scanmx.in/sdc/python/files/release_celeba_hq_256_deepfill_v2.zip
