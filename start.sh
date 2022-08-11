@@ -22,6 +22,7 @@ pip3.6 install https://dev.scanmx.in/sdc/python/files/tensorflow-1.5.0-cp36-cp36
 pip3.6 install imutils
 pip3.6 install pyyaml
 pip3.6 install pillow
+pip3.6 install google-colab
 pip3.6 install opencv-python
 pip3.6 install opencv-contrib-python
 pip3.6 install git+https://github.com/JiahuiYu/neuralgym
@@ -33,3 +34,4 @@ unzip  /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip -d /co
 unzip  /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2.zip -d /content/inpainting/model_logs/
 rm /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip
 rm /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2.zip
+mkdir /content/result

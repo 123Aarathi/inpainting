@@ -56,10 +56,13 @@ if __name__ == "__main__":
         for var in vars_list:
             vname = var.name
             from_name = vname
-            var_value = tf.contrib.framework.load_variable(args.checkpoint_dir, from_name)
+            var_value = tf.contrib.framework.load_variable(
+                args.checkpoint_dir, from_name)
             assign_ops.append(tf.assign(var, var_value))
         sess.run(assign_ops)
         print('Model loaded.')
         result = sess.run(output)
+        cv2.imwrite("/content/result/result.png", result[0][:, :, ::-1])
+        shimg = cv2.imread("/content/result/result.png")
+        cv2_imshow(shimg)
         cv2_imshow(result[0][:, :, ::-1])
-        cv2.imwrite("result.png", result[0][:, :, ::-1])
