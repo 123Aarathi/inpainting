@@ -61,5 +61,5 @@ if __name__ == "__main__":
         sess.run(assign_ops)
         print('Model loaded.')
         result = sess.run(output)
-        cv2.imshow(args.output, result[0][:, :, ::-1])
+        cv2_imshow(result[0][:, :, ::-1])
         cv2.imwrite("result.png", result[0][:, :, ::-1])
