@@ -24,6 +24,7 @@ if __name__ == "__main__":
     args, unknown = parser.parse_known_args()
     model = InpaintCAModel()
     image = cv2.imread(args.image)
+    ipimg = image
     mask = cv2.imread(args.mask)
     # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
 
@@ -60,6 +61,6 @@ if __name__ == "__main__":
         print('Model loaded.')
         result = sess.run(output)
         cv2.imwrite("/content/result/result.jpg", result[0][:, :, ::-1])
-        cv2.imwrite("/content/result/input.jpg", image)
+        cv2.imwrite("/content/result/input.jpg", ipimg)
         print("Images Saved")
         os.system('python3.6 /content/inpainting/show_img.py')
