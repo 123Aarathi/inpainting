@@ -66,5 +66,5 @@ if __name__ == "__main__":
         cv2.imwrite("/content/result/input.jpg", ipimg)
         cv2.imwrite("/content/result/cobo.jpg", combo)
         print("Images Saved")
-        Image("/content/result/cobo.jpg")
+        Image("/content/result/combo.jpg")
         # os.system('python3.6 /content/inpainting/show_img.py')
