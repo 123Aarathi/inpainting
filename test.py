@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import tensorflow as tf
 import neuralgym as ng
-from google.colab.patches import cv2_imshow
+from IPython.display import Image
 
 from inpaint_model import InpaintCAModel
 
@@ -64,5 +64,5 @@ if __name__ == "__main__":
         result = sess.run(output)
         cv2.imwrite("/content/result/result.png", result[0][:, :, ::-1])
         shimg = cv2.imread("/content/result/result.png")
-        cv2_imshow(shimg)
-        cv2_imshow(result[0][:, :, ::-1])
+        Image(shimg)
+        Image(result[0][:, :, ::-1])
