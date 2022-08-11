@@ -64,7 +64,4 @@ if __name__ == "__main__":
         print('Model loaded.')
         result = sess.run(output)
         cv2.imwrite("/content/result/result.png", result[0][:, :, ::-1])
-        # cv2_imshow(result[0][:, :, ::-1])
-        image = cv2.cvtColor(result[0][:, :, ::-1], cv2.COLOR_BGR2RGB)
-        plt.imshow(image)
-        plt.show()
+        cv2.imwrite("/content/result/input.png", image)
