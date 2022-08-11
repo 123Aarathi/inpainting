@@ -63,6 +63,5 @@ if __name__ == "__main__":
         print('Model loaded.')
         result = sess.run(output)
         cv2.imwrite("/content/result/result.png", result[0][:, :, ::-1])
-        shimg = cv2.imread("/content/result/result.png")
-        Image(shimg)
+        Image("/content/result/result.png")
         Image(result[0][:, :, ::-1])
