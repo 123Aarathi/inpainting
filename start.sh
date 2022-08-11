@@ -1,7 +1,4 @@
 #!/bin/bash
-
-mkdir dummy
-wget https://dev.scanmx.in/sdc/python/files/custom_pip.py -O /content/inpainting/dummy/custom_pip.py
 python3.6 /content/inpainting/dummy/custom_pip.py
 pip3.6 -V
 echo "Waiting for Server"
