@@ -1,11 +1,9 @@
 import argparse
-
+import os
 import cv2
 import numpy as np
 import tensorflow as tf
 import neuralgym as ng
-import matplotlib.pyplot as plt
-
 from inpaint_model import InpaintCAModel
 
 
@@ -65,3 +63,5 @@ if __name__ == "__main__":
         result = sess.run(output)
         cv2.imwrite("/content/result/result.jpg", result[0][:, :, ::-1])
         cv2.imwrite("/content/result/input.jpg", image)
+        print("Images Saved")
+        os.system('python3.6 /content/inpainting/show_img.py')
