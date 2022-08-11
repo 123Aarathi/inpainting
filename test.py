@@ -22,8 +22,6 @@ if __name__ == "__main__":
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
     # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
-    plt.figure(figsize=(10,10))
-    plt.axis("off")
     model = InpaintCAModel()
     image = cv2.imread(args.image)
     mask = cv2.imread(args.mask)
