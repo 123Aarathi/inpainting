@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 import neuralgym as ng
 from inpaint_model import InpaintCAModel
-
+from IPython.display import Image
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
@@ -60,7 +60,11 @@ if __name__ == "__main__":
         sess.run(assign_ops)
         print('Model loaded.')
         result = sess.run(output)
-        cv2.imwrite("/content/result/result.jpg", result[0][:, :, ::-1])
+        prc_img=result[0][:, :, ::-1]
+        combo = np.hstack((ipimg, prc_img))
+        cv2.imwrite("/content/result/result.jpg", prc_img)
         cv2.imwrite("/content/result/input.jpg", ipimg)
+        cv2.imwrite("/content/result/cobo.jpg", combo)
         print("Images Saved")
-        os.system('python3.6 /content/inpainting/show_img.py')
+        Image("/content/result/cobo.jpg")
+        # os.system('python3.6 /content/inpainting/show_img.py')
