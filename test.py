@@ -64,4 +64,3 @@ if __name__ == "__main__":
         result = sess.run(output)
         cv2.imwrite("/content/result/result.png", result[0][:, :, ::-1])
         Image("/content/result/result.png")
-        Image(result[0][:, :, ::-1])
