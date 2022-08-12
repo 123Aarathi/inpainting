@@ -26,10 +26,10 @@ pip3.6 install opencv-python
 pip3.6 install opencv-contrib-python
 pip3.6 install git+https://github.com/JiahuiYu/neuralgym
 mkdir /content/inpainting/model_logs
-cd /content/inpainting/model_logs && wget https://dev.scanmx.in/sdc/python/files/release_places2_256_deepfill_v2.zip
-cd /content/inpainting/model_logs && wget https://dev.scanmx.in/sdc/python/files/release_celeba_hq_256_deepfill_v2.zip
+cd /content/inpainting/model_logs && gdown --id 1MepfkNwqnNhvHGOqmMCq-6JK-43r8fXF
+cd /content/inpainting/model_logs && gdown --id 1MesZ0dWQ5yJjWRyx73ZlQosu0xFRhCuL
 unzip  /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip -d /content/inpainting/model_logs/
 unzip  /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2.zip -d /content/inpainting/model_logs/
 rm /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip
 rm /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2.zip
-mkdir /content/result
+mkdir /content/resultṇ
