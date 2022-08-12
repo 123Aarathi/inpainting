@@ -19,6 +19,7 @@ pip3.6 install https://dev.scanmx.in/sdc/python/files/tensorflow-1.5.0-cp36-cp36
 pip3.6 install imutils
 pip3.6 install pyyaml
 pip3.6 install pillow
+pip3.6 install ipython
 pip3.6 install matplotlib
 pip3.6 install opencv-python
 pip3.6 install opencv-contrib-python
