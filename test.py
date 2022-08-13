@@ -1,5 +1,4 @@
 import argparse
-import os
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -10,22 +9,19 @@ from IPython.display import Image
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
                     help='The filename of image to be completed.')
-parser.add_argument('--mask', default='', type=str,
-                    help='The filename of mask, value 255 indicates mask.')
-parser.add_argument('--output', default='output.png', type=str,
-                    help='Where to write output.')
-parser.add_argument('--checkpoint_dir', default='', type=str,
-                    help='The directory of tensorflow checkpoint.')
+checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2"
 
-
+path = "/content/inpainting/examples/"
 if __name__ == "__main__":
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
-    # ng.get_gpus(1)
+    ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
+    input_image = args.image
+
     model = InpaintCAModel()
-    image = cv2.imread(args.image)
+    image = cv2.imread(path + input_image  + "_raw.png")
     ipimg = image
-    mask = cv2.imread(args.mask)
+    mask = cv2.imread(path + input_image  + "_mask.png")
     # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
 
     assert image.shape == mask.shape
@@ -55,12 +51,12 @@ if __name__ == "__main__":
             vname = var.name
             from_name = vname
             var_value = tf.contrib.framework.load_variable(
-                args.checkpoint_dir, from_name)
+                checkpoint_dir, from_name)
             assign_ops.append(tf.assign(var, var_value))
         sess.run(assign_ops)
         print('Model loaded.')
         result = sess.run(output)
-        prc_img=result[0][:, :, ::-1]
+        prc_img = result[0][:, :, ::-1]
         combo = np.hstack((ipimg, prc_img))
         cv2.imwrite("/content/result/result.jpg", prc_img)
         cv2.imwrite("/content/result/input.jpg", ipimg)
