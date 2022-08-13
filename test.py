@@ -5,6 +5,7 @@ import tensorflow as tf
 import neuralgym as ng
 from inpaint_model import InpaintCAModel
 from IPython.display import Image
+from time import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
@@ -13,6 +14,7 @@ checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_
 
 path = "/content/inpainting/data/"
 if __name__ == "__main__":
+    st_time=time()
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
     # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
@@ -63,3 +65,4 @@ if __name__ == "__main__":
         cv2.imwrite("/content/result/combo.jpg", combo)
         print("Images Saved")
         Image("/content/result/combo.jpg")
+        print("Processing Time: ", time()-st_time)
