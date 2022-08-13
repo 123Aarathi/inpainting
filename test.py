@@ -17,7 +17,7 @@ if __name__ == "__main__":
     ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
     input_image = args.image
-    print(input_image)
+    input_image = input_image[:input_image.rfind("_")]
     model = InpaintCAModel()
     image = cv2.imread(path + input_image  + "_raw.png")
     ipimg = image
