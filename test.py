@@ -67,4 +67,3 @@ if __name__ == "__main__":
         cv2.imwrite("/content/result/combo.jpg", combo)
         print("Images Saved")
         Image("/content/result/combo.jpg")
-        os.system('python /content/inpainting/show_img.py')
