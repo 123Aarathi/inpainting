@@ -1,5 +1,5 @@
 #!/bin/bash
-python3.6 /content/inpainting/dummy/custom_pip.py
+python3.6 /content/inpainting/pip/custom_pip.py
 pip3.6 -V
 echo "Waiting for Server"
 sleep 5
