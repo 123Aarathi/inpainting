@@ -14,16 +14,16 @@ checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_
 
 path = "/content/inpainting/data/"
 if __name__ == "__main__":
-    st_time=time()
+    st_time = time()
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
-    # ng.get_gpus(1)
+
     args, unknown = parser.parse_known_args()
     input_image = args.image
     input_image = input_image[:input_image.rfind("_")]
     model = InpaintCAModel()
-    image = cv2.imread(path + input_image  + "_raw.png")
+    image = cv2.imread(path + input_image + "_raw.png")
     ipimg = image
-    mask = cv2.imread(path + input_image  + "_mask.png")
+    mask = cv2.imread(path + input_image + "_mask.png")
     # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
 
     assert image.shape == mask.shape
