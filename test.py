@@ -14,7 +14,7 @@ checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_
 path = "/content/inpainting/data/"
 if __name__ == "__main__":
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
-    ng.get_gpus(1)
+    # ng.get_gpus(1)
     args, unknown = parser.parse_known_args()
     input_image = args.image
     input_image = input_image[:input_image.rfind("_")]
