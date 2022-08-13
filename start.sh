@@ -32,4 +32,4 @@ unzip  /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip -d /co
 unzip  /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2.zip -d /content/inpainting/model_logs/
 rm /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip
 rm /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2.zip
-mkdir /content/resultṇ
+mkdir /content/result
