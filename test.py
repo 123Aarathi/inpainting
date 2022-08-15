@@ -21,11 +21,10 @@ if __name__ == "__main__":
 
     args, unknown = parser.parse_known_args()
     input_image = args.image
-    filename = input_image[:input_image.rfind("_")]
+    filename = input_image[:input_image.rfind(".")]
     model = InpaintCAModel()
     image = cv2.imread(path + input_image)
     ipimg = image
-    input_image = input_image[:input_image.rfind("_")]
     mask = cv2.imread(path + filename + "_mask.png")
     # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
 
