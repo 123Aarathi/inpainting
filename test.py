@@ -1,3 +1,4 @@
+import os
 import argparse
 import cv2
 import numpy as np
@@ -21,7 +22,8 @@ if __name__ == "__main__":
 
     args, unknown = parser.parse_known_args()
     input_image = args.image
-    filename = input_image[:input_image.rfind(".")]
+    filename_full=os.path.basename(input_image)
+    filename = filename_full[:filename_full.rfind(".")]
     model = InpaintCAModel()
     image = cv2.imread(path + input_image)
     ipimg = image
