@@ -22,6 +22,7 @@ if __name__ == "__main__":
 
     args, unknown = parser.parse_known_args()
     input_image = args.image
+    input_image_path = input_image[:input_image.rfind(".")]
     filename_full=os.path.basename(input_image)
     filename = filename_full[:filename_full.rfind(".")]
     model = InpaintCAModel()
