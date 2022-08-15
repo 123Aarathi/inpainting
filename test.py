@@ -5,7 +5,6 @@ from IPython.display import Image
 from inpaint_model import InpaintCAModel
 import neuralgym as ng
 import tensorflow as tf
-tf.get_logger().setLevel('INFO')
 import os
 import argparse
 import cv2
