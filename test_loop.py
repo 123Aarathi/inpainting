@@ -1,15 +1,16 @@
+import warnings
+import os
+warnings.simplefilter(action='ignore', category=FutureWarning)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import numpy as np
 import cv2
 import argparse
-import os
 import tensorflow as tf
 import neuralgym as ng
 from inpaint_model import InpaintCAModel
 from IPython.display import Image
 from time import time
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
                     help='The filename of image to be completed.')
