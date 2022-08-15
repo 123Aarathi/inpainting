@@ -19,7 +19,9 @@ parser.add_argument('--count', default='', type=int,
 checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_v3"
 path = "/content/inpainting/data/"
 
-def process_image():
+if __name__ == "__main__":
+    args, unknown = parser.parse_known_args()
+    count = args.count
     st_time = time()
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
     input_image = args.image
@@ -63,13 +65,9 @@ def process_image():
         print('Model loaded.')
         result = sess.run(output)
         prc_img = result[0][:, :, ::-1]
-        cv2.imwrite("/content/result/" + filename + "_"+ str(count) + "_result.jpg", prc_img)
-        cv2.imwrite("/content/result/" + filename + "_"+ str(count) + "_input.jpg", ipimg)
-        print("Processing Time for "+ filename + "_"+ str(count) +  " :", time()-st_time)
-
-
-if __name__ == "__main__":
-    args, unknown = parser.parse_known_args()
-    count = args.count
-    for i in range(0,count,1):
-        process_image()
+        cv2.imwrite("/content/result/" + filename + "_" +
+                    str(count) + "_result.jpg", prc_img)
+        cv2.imwrite("/content/result/" + filename + "_" +
+                    str(count) + "_input.jpg", ipimg)
+        print("Processing Time for " + filename +
+              "_" + str(count) + " :", time()-st_time)
