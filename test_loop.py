@@ -65,9 +65,6 @@ if __name__ == "__main__":
         print('Model loaded.')
         result = sess.run(output)
         prc_img = result[0][:, :, ::-1]
-        cv2.imwrite("/content/result/" + filename + "_" +
-                    str(count) + "_result.jpg", prc_img)
-        cv2.imwrite("/content/result/" + filename + "_" +
-                    str(count) + "_input.jpg", ipimg)
-        print("Processing Time for " + filename +
-              "_" + str(count) + " :", time()-st_time)
+        cv2.imwrite("/content/result/" + filename + "_" +  str(count) + "_result.jpg", prc_img)
+        cv2.imwrite("/content/result/" + filename + "_" +  str(count) + "_input.jpg", ipimg)
+        print("Processing Time for " + filename +   "_" + str(count) + " :", time()-st_time)
