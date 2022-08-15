@@ -13,13 +13,15 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
                     help='The filename of image to be completed.')
+parser.add_argument('--count', default='', type=int,
+                    help='The filename of image to be completed.')
 checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_v3"
-count = 10
 path = "/content/inpainting/data/"
 if __name__ == "__main__":
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
     args, unknown = parser.parse_known_args()
     input_image = args.image
+    count = args.count
     input_image_path = input_image[:input_image.rfind(".")]
     filename_full = os.path.basename(input_image)
     filename = filename_full[:filename_full.rfind(".")]
