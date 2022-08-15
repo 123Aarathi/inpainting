@@ -1,14 +1,14 @@
+from time import time
+from IPython.display import Image
+from inpaint_model import InpaintCAModel
+import neuralgym as ng
+import tensorflow as tf
 import os
 import argparse
 import cv2
 import numpy as np
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-import tensorflow as tf
-import neuralgym as ng
-from inpaint_model import InpaintCAModel
-from IPython.display import Image
-from time import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
@@ -23,12 +23,12 @@ if __name__ == "__main__":
     args, unknown = parser.parse_known_args()
     input_image = args.image
     input_image_path = input_image[:input_image.rfind(".")]
-    filename_full=os.path.basename(input_image)
+    filename_full = os.path.basename(input_image)
     filename = filename_full[:filename_full.rfind(".")]
     model = InpaintCAModel()
     image = cv2.imread(path + input_image)
     ipimg = image
-    mask = cv2.imread(path + filename + "_mask.png")
+    mask = cv2.imread(path + input_image_path + "_mask.png")
     # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
 
     assert image.shape == mask.shape
@@ -65,8 +65,8 @@ if __name__ == "__main__":
         result = sess.run(output)
         prc_img = result[0][:, :, ::-1]
         # combo = np.hstack((ipimg, prc_img))
-        cv2.imwrite("/content/result/"+ filename +"_result.jpg", prc_img)
-        cv2.imwrite("/content/result/"+ filename +"_input.jpg", ipimg)
+        cv2.imwrite("/content/result/" + filename + "_result.jpg", prc_img)
+        cv2.imwrite("/content/result/" + filename + "_input.jpg", ipimg)
         # cv2.imwrite("/content/result/combo.jpg", combo)
         # print("Images Saved")
         # Image("/content/result/combo.jpg")
