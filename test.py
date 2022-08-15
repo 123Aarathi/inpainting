@@ -1,3 +1,5 @@
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 from time import time
 from IPython.display import Image
 from inpaint_model import InpaintCAModel
@@ -7,8 +9,6 @@ import os
 import argparse
 import cv2
 import numpy as np
-import warnings
-warnings.simplefilter(action='ignore', category=FutureWarning)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
