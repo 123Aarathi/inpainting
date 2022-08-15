@@ -21,11 +21,12 @@ if __name__ == "__main__":
 
     args, unknown = parser.parse_known_args()
     input_image = args.image
+    filename = input_image[:input_image.rfind("_")]
     model = InpaintCAModel()
     image = cv2.imread(path + input_image)
     ipimg = image
     input_image = input_image[:input_image.rfind("_")]
-    mask = cv2.imread(path + input_image + "_mask.png")
+    mask = cv2.imread(path + filename + "_mask.png")
     # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
 
     assert image.shape == mask.shape
@@ -62,8 +63,8 @@ if __name__ == "__main__":
         result = sess.run(output)
         prc_img = result[0][:, :, ::-1]
         # combo = np.hstack((ipimg, prc_img))
-        cv2.imwrite("/content/result/result.jpg", prc_img)
-        cv2.imwrite("/content/result/input.jpg", ipimg)
+        cv2.imwrite("/content/result/"+ filename +"_result.jpg", prc_img)
+        cv2.imwrite("/content/result/"+ filename +"_input.jpg", ipimg)
         # cv2.imwrite("/content/result/combo.jpg", combo)
         # print("Images Saved")
         # Image("/content/result/combo.jpg")

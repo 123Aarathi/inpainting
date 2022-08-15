@@ -32,5 +32,6 @@ unzip  /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v3.zip -d /
 unzip  /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip -d /content/inpainting/model_logs/
 rm /content/inpainting/model_logs/release_places2_256_deepfill_v2.zip
 rm /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v3.zip
+mv /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2 /content/inpainting/model_logs/release_celeba_hq_256_deepfill_v3
 mkdir /content/result
 echo "Installation Completed"
