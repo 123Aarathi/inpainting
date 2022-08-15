@@ -12,7 +12,7 @@ from time import time
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
                     help='The filename of image to be completed.')
-checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_v2"
+checkpoint_dir = "/content/inpainting/model_logs/release_celeba_hq_256_deepfill_v3"
 
 path = "/content/inpainting/data/"
 if __name__ == "__main__":
