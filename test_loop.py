@@ -67,10 +67,8 @@ if __name__ == "__main__":
             result = sess.run(output)
             prc_img = result[0][:, :, ::-1]
             # combo = np.hstack((ipimg, prc_img))
-            cv2.imwrite("/content/result/" + filename +
-                        "_"+count + "_result.jpg", prc_img)
-            cv2.imwrite("/content/result/" + filename +
-                        "_"+count + "_input.jpg", ipimg)
+            cv2.imwrite("/content/result/" + filename + "_"+ str(count) + "_result.jpg", prc_img)
+            cv2.imwrite("/content/result/" + filename + "_"+ str(count) + "_input.jpg", ipimg)
             # cv2.imwrite("/content/result/combo.jpg", combo)
             # print("Images Saved")
             # Image("/content/result/combo.jpg")
