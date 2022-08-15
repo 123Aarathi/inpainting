@@ -25,7 +25,6 @@ if __name__ == "__main__":
     input_image_path = input_image[:input_image.rfind(".")]
     filename_full = os.path.basename(input_image)
     filename = filename_full[:filename_full.rfind(".")]
-    model = InpaintCAModel()
     image = cv2.imread(path + input_image)
     ipimg = image
     mask = cv2.imread(path + input_image_path + "_mask.png")
@@ -40,7 +39,7 @@ if __name__ == "__main__":
         st_time = time()
 
         # mask = cv2.resize(mask, (0,0), fx=0.5, fy=0.5)
-
+        model = InpaintCAModel()
         image = np.expand_dims(image, 0)
         mask = np.expand_dims(mask, 0)
         input_image = np.concatenate([image, mask], axis=2)
