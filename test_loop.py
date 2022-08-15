@@ -21,6 +21,7 @@ path = "/content/inpainting/data/"
 def process_image():
     st_time = time()
     FLAGS = ng.Config('/content/inpainting/inpaint.yml')
+    input_image = args.image
     input_image_path = input_image[:input_image.rfind(".")]
     filename_full = os.path.basename(input_image)
     filename = filename_full[:filename_full.rfind(".")]
@@ -28,7 +29,6 @@ def process_image():
     image = cv2.imread(path + input_image)
     ipimg = image
     mask = cv2.imread(path + input_image_path + "_mask.png")
-    
     assert image.shape == mask.shape
 
     h, w, _ = image.shape
@@ -69,7 +69,6 @@ def process_image():
 
 if __name__ == "__main__":
     args, unknown = parser.parse_known_args()
-    input_image = args.image
     count = args.count
     for i in range(0,count,1):
         process_image()
